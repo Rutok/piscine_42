@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nboste <nboste@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/01 15:40:55 by nboste            #+#    #+#             */
+/*   Updated: 2016/09/02 16:52:46 by nboste           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_atoi(char *str)
+{
+	int		i;
+	int		value;
+	int		coeff;
+	char	*head;
+	int		neg;
+
+	i = 0;
+	value = 0;
+	coeff = 1;
+	head = str;
+	if (*str == '-')
+	{
+		neg = 1;
+		head++;
+		i++;
+	}
+	while (*head != '\0')
+	{
+		i++;
+		head++;
+	}
+	while (i)
+	{
+		i--;
+		value += coeff * (str[i] - 48);
+		coeff *= 10;
+	}
+	return (value);
+}
